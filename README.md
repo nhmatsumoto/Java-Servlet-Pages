@@ -70,3 +70,66 @@ CREATE TABLE employee (
 
 -- Create an index on the dep_id column of the 'employee' table
 CREATE INDEX idx_employee_dep_id ON employee (dep_id);
+
+
+### 5. MariaDB JDBC Driver
+
+Download the MariaDB Connector/J (the JDBC driver) from the official MariaDB website. Place the downloaded `.jar` file in your projects `src/main/webapp/WEB-INF/lib` folder (or in the `lib` folder of your Tomcat installation, if you prefer a global approach, although the former is recommended for project portability).
+
+### 6. Database Connection Configuration (Java Example)
+
+Within your Java code (Servlets or utility classes), you will need to configure the database connection string.
+
+```java
+// Example JDBC connection string for MariaDB
+String url = "jdbc:mariadb://localhost:3306/your_database_name"; // Replace 'your_database_name'
+String user = "your_username"; // Replace 'your_username'
+String password = "your_password"; // Replace 'your_password'
+
+try {
+    // Load the JDBC driver (necessary for older JDBC versions, but good practice)
+    Class.forName("org.mariadb.jdbc.Driver");
+    // Establish the connection
+    Connection conn = DriverManager.getConnection(url, user, password);
+    // ... use the connection
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+    // Handle error: Driver not found
+} catch (SQLException e) {
+    e.printStackTrace();
+    // Handle error: Connection or SQL operation failed
+}
+```
+
+## How to Run the Project
+
+1.  **Build the Project:** If you are using an IDE like Eclipse or IntelliJ IDEA, import the project and build it (a `.war` file is usually created).
+2.  **Deploy to Tomcat:** Copy the generated `.war` file to the `webapps` folder of your Apache Tomcat installation.
+3.  **Start Tomcat:** Navigate to the `bin` directory of your Tomcat installation and execute `startup.bat` (Windows) or `startup.sh` (Linux/macOS).
+4.  **Access the Application:** Open your browser and access your application's URL (e.g., `http://localhost:8080/your_project_name/`).
+
+## Utility Scripts
+
+This project includes a PowerShell script to help configure your Java environment:
+
+* **`javaconfig.ps1`**: Located in the `scripts` directory. This script automates the process of setting `JAVA_HOME` and updating the system `Path` environment variable to point to the latest JDK installed in `C:\Java`.
+
+    **How to Run `javaconfig.ps1`:**
+
+    1.  Open PowerShell as an **Administrator**.
+    2.  Navigate to the `scripts` directory of your project:
+
+        ```powershell
+        cd C:\path\to\your\project\scripts
+        ```
+
+        (Replace `C:\path\to\your\project` with the actual path to your project.)
+    3. Execute the script:
+        ```powershell
+            .\javaconfig.ps1
+        ```
+    4. After execution, restart your terminal or IDE for the changes to the environment variables to take effect.
+
+## Contribution
+
+Feel free to explore, modify, and add new functionalities to this project to enhance your learning.
