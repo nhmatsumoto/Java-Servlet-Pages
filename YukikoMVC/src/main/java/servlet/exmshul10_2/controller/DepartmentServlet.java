@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import servlet.exmshul10_2.model.Department;
 import servlet.exmshul10_2.model.DepartmentDAO;
 
-
 @WebServlet("/GetDepartments")
 public class DepartmentServlet extends HttpServlet {
 

@@ -11,7 +11,6 @@ import java.util.List;
 
 public class EmployeeDAO {
 	
-	
 	static {
 	    try {
 	        Class.forName("org.mariadb.jdbc.Driver");
@@ -32,8 +31,6 @@ public class EmployeeDAO {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             String sql = "SELECT e.emp_id, e.emp_name, d.dep_id, d.dep_name, e.registration_datetime FROM employee e JOIN department d ON e.dep_id = d.dep_id";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            
-            
             
             ResultSet rs = stmt.executeQuery();
 
