@@ -81,6 +81,7 @@ Download the MariaDB Connector/J (the JDBC driver) from the official MariaDB web
 Within your Java code (Servlets or utility classes), you will need to configure the database connection string.
 
 ```java
+
 // Example JDBC connection string for MariaDB
 String url = "jdbc:mariadb://localhost:3306/your_database_name"; // Replace 'your_database_name'
 String user = "your_username"; // Replace 'your_username'
