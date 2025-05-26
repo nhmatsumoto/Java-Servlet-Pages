@@ -70,7 +70,7 @@ CREATE TABLE employee (
 
 -- Create an index on the dep_id column of the 'employee' table
 CREATE INDEX idx_employee_dep_id ON employee (dep_id);
-
+```
 
 ### 5. MariaDB JDBC Driver
 
