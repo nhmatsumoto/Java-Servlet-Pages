@@ -121,7 +121,7 @@ This project includes a PowerShell script to help configure your Java environmen
     2.  Navigate to the `scripts` directory of your project:
 
         ```powershell
-        cd C:\path\to\your\project\scripts
+            cd C:\path\to\your\project\scripts
         ```
 
         (Replace `C:\path\to\your\project` with the actual path to your project.)
